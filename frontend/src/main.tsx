@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './pages/homePage'
 import ProfilesPage from './pages/profilesPage'
 import ErrorPage from './pages/errorPage'
+import ProfilePage from './pages/profilePage'
 
 const router = createBrowserRouter([{
   path: '/',
@@ -13,7 +14,13 @@ const router = createBrowserRouter([{
 },
 {
   path:'/profiles',
-  element: <ProfilesPage/>
+  element: <ProfilesPage/>,
+  children: [ 
+  {
+    path:'/profiles/:profileId',
+    element: <ProfilePage/>,
+  }
+  ]
 }
 
 ])
